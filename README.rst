@@ -27,7 +27,7 @@ automatically when objects are saved. This is handled by signals.
 Minimal requirements
 --------------------
 
-django-linkcheck requires Python 3.9 and Django 4.2.
+django-linkcheck requires Python 3.10 and Django 4.2.
 
 Basic usage
 -----------
@@ -217,6 +217,29 @@ Default: ``True``
 
 Whether links with broken hash anchors should be marked as valid.
 Disable this if you want that links to anchors which are not contained in the link target's HTML source are marked as invalid.
+
+
+LINKCHECK_PROXIES
+~~~~~~~~~~~~~~~~~
+
+Default: `{}`
+
+Allows you to make your `check_external` requests via a proxy. Expects a dictionary, e.g.:
+
+.. code-block:: python3
+
+    LINKCHECK_PROXIES = {
+        "http": "http://...",
+        "https": "https://...",
+    }
+
+
+LINKCHECK_TRUST_PROXY_SSL
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Default: `False`
+
+If you are making your requests via a proxy, you can use this setting to turn off SSL verification for the proxy.
 
 
 django-filebrowser integration
